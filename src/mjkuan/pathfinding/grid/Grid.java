@@ -25,6 +25,10 @@ public class Grid {
 
 	public void show()
 	{
+		for (Tile tile: tiles) {
+			tile.show();
+		}
+		
 		for (Entity entity : entities) {
 			entity.show();
 		}
@@ -35,5 +39,20 @@ public class Grid {
 		for (Entity entity : entities) {
 			entity.update();
 		}
+	}
+	
+	public int getHeight()
+	{
+		return this.height;
+	}
+	
+	public int getSize()
+	{
+		return this.size;
+	}
+	
+	public int getWidth()
+	{
+		return this.width;
 	}
 }
