@@ -6,13 +6,13 @@ import java.util.TreeSet;
 public class Grid {
 	private Set<Entity> entities;
 	private Tile[] tiles;
-	private int sizeX, sizeY, size;
+	private int width, height, size;
 
-	public Grid(int sizeX, int sizeY)
+	public Grid(int width, int height)
 	{
-		this.sizeX = sizeX;
-		this.sizeY = sizeY;
-		this.size = sizeX * sizeY;
+		this.width = width;
+		this.height = height;
+		this.size = width * height;
 
 		this.entities = new TreeSet<>();
 		this.tiles = new Tile[this.size];

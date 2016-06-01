@@ -14,18 +14,19 @@ public class Global {
 
 		Global.p5 = p5;
 	}
-	
+
 	public static double scaleSecondsToStandard(double seconds)
 	{
 		return FRAMES_STANDARD * seconds;
 	}
-	
+
 	public static double scaleValueToFrames(double value)
 	{
 		return FRAMES_STANDARD * value / p5.frameRate;
 	}
-	
-	public static PApplet callP5() {
+
+	public static PApplet callP5()
+	{
 		return p5;
 	}
 }

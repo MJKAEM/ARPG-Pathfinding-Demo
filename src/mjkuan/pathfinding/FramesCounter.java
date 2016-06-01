@@ -1,7 +1,5 @@
 package mjkuan.pathfinding;
 
-import processing.core.PApplet;
-
 public class FramesCounter {
 	public static final FramesCounterAlignment DEFAULT_ALIGNMENT = FramesCounterAlignment.bottomRight;
 	public static final double DEFAULT_MAX_COUNT = Global.scaleSecondsToStandard(0.03125 /*0.015625*/);
