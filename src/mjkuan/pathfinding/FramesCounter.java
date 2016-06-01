@@ -6,8 +6,7 @@ public class FramesCounter {
 	public static final FramesCounterAlignment DEFAULT_ALIGNMENT = FramesCounterAlignment.bottomRight;
 	public static final double DEFAULT_MAX_COUNT = Global.scaleSecondsToStandard(0.03125 /*0.015625*/);
 	public static final float DEFAULT_TEXT_SIZE = 12;
-
-	private PApplet p5;
+	
 	private FramesCounterAlignment alignment;
 	private boolean enabled;
 	private int currentFrameRate;
@@ -15,14 +14,13 @@ public class FramesCounter {
 	private double currentCount;
 	private float textSize;
 
-	public FramesCounter(PApplet p5)
+	public FramesCounter()
 	{
-		this(p5, DEFAULT_ALIGNMENT, DEFAULT_MAX_COUNT, DEFAULT_TEXT_SIZE);
+		this(DEFAULT_ALIGNMENT, DEFAULT_MAX_COUNT, DEFAULT_TEXT_SIZE);
 	}
 
-	public FramesCounter(PApplet p5, FramesCounterAlignment alignment, double maxCount, float textSize)
+	public FramesCounter(FramesCounterAlignment alignment, double maxCount, float textSize)
 	{
-		this.p5 = p5;
 		this.alignment = alignment;
 		this.maxCount = maxCount;
 		this.textSize = textSize;
@@ -31,33 +29,33 @@ public class FramesCounter {
 	public void show()
 	{
 		if (enabled) {
-			p5.textSize(textSize);
+			Global.callP5().textSize(textSize);
 
-			float positionX = 0;
-			float positionY = 0;
+			float positionX = Global.callP5().textWidth(' ');
+			float positionY = 12;
 
 			switch (alignment) {
 				case topLeft:
 					break;
 
 				case topRight:
-					positionX = p5.width - p5.textWidth(String.valueOf(currentFrameRate) + " ");
+					positionX = Global.callP5().width - Global.callP5().textWidth(String.valueOf(currentFrameRate) + " ");
 					break;
 
 				case bottomLeft:
-					positionY = p5.height - textSize;
+					positionY = Global.callP5().height - (textSize / 2);
 					break;
 
 				case bottomRight:
-					positionX = p5.width - p5.textWidth(String.valueOf(currentFrameRate) + " ");
-					positionY = p5.height - textSize;
+					positionX = Global.callP5().width - Global.callP5().textWidth(String.valueOf(currentFrameRate) + " ");
+					positionY = Global.callP5().height - (textSize / 2);
 					break;
 
 				default:
 					throw new RuntimeException("This is impossible.");
 			}
 
-			p5.text(currentFrameRate, positionX, positionY);
+			Global.callP5().text(currentFrameRate, positionX, positionY);
 		}
 	}
 
@@ -65,7 +63,7 @@ public class FramesCounter {
 	{
 		if (enabled) {
 			if (currentCount >= maxCount) {
-				currentFrameRate = (int) p5.frameRate;
+				currentFrameRate = (int) Global.callP5().frameRate;
 				currentCount = 0;
 			}
 			else {
@@ -76,7 +74,7 @@ public class FramesCounter {
 
 	public void toggle()
 	{
-		if (p5.key == '`') {
+		if (Global.callP5().key == '`') {
 			enabled = !enabled;
 		}
 	}

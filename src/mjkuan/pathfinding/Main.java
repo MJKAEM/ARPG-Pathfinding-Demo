@@ -16,7 +16,7 @@ public class Main extends PApplet {
 	{
 		frameRate((float) Math.pow(2, 8));
 		Global.initialize(this);
-		framesCounter = new FramesCounter(this, FramesCounterAlignment.bottomRight, 0, 12);
+		framesCounter = new FramesCounter(FramesCounterAlignment.bottomRight, 0, 12);
 	}
 	
 	@Override

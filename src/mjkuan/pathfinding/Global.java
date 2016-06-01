@@ -24,4 +24,8 @@ public class Global {
 	{
 		return FRAMES_STANDARD * value / p5.frameRate;
 	}
+	
+	public static PApplet callP5() {
+		return p5;
+	}
 }
