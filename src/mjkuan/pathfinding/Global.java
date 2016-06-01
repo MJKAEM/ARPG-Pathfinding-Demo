@@ -4,6 +4,7 @@ import processing.core.PApplet;
 
 public class Global {
 	public static final int FRAMES_STANDARD = 60;
+	
 	private static PApplet p5 = null;
 
 	public static void initialize(PApplet p5)
