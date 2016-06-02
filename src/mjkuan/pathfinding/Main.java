@@ -1,9 +1,11 @@
 package mjkuan.pathfinding;
 
+import mjkuan.pathfinding.grid.TestGrid;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
 	private FramesCounter framesCounter;
+	private TestGrid testGrid;
 	
 	@Override
 	public void settings()
@@ -18,6 +20,7 @@ public class Main extends PApplet {
 		Global.initialize(this);
 		ContentLoader.loadContent();
 		framesCounter = new FramesCounter(FramesCounterAlignment.bottomRight, 0, 12);
+		testGrid = new TestGrid();
 	}
 	
 	@Override
@@ -27,11 +30,13 @@ public class Main extends PApplet {
 		
 		background(0);
 		framesCounter.show();
+		testGrid.show();
 	}
 	
 	public void update()
 	{
 		framesCounter.update();
+		testGrid.update();
 	}
 	
 	@Override

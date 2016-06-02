@@ -13,7 +13,7 @@ public class Rock extends ImpassableEntity {
 	@Override
 	public void show()
 	{
-		Global.callP5().image(ContentLoader.getSprite("Rock"), getPosition().getX() * 32, getPosition().getY() * 32);
+		Global.callP5().image(ContentLoader.getSprite("Rock"), getPosition().getX() * 64, getPosition().getY() * 64);
 	}
 
 	@Override
