@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Grid {
+	private MouseOverEffect mouseOverEffect;
 	private Set<Entity> entities;
 	private Tile[] tiles;
 	private int width, height, size;
@@ -16,22 +17,28 @@ public class Grid {
 
 		this.entities = new TreeSet<>();
 		this.tiles = new Tile[this.size];
+		
+		this.mouseOverEffect = new MouseOverEffect();
 	}
 
-	public void add(Entity entity, GridPosition position)
+	public void add(Entity entity)
 	{
 		entities.add(entity);
 	}
 
 	public void show()
 	{
-		for (Tile tile: tiles) {
-			tile.show();
+		for (Tile tile : tiles) {
+			if (tile != null) {
+				tile.show();
+			}
 		}
-		
+
 		for (Entity entity : entities) {
 			entity.show();
 		}
+		
+		mouseOverEffect.show();
 	}
 
 	public void update()
@@ -39,18 +46,20 @@ public class Grid {
 		for (Entity entity : entities) {
 			entity.update();
 		}
+		
+		mouseOverEffect.update();
 	}
-	
+
 	public int getHeight()
 	{
 		return this.height;
 	}
-	
+
 	public int getSize()
 	{
 		return this.size;
 	}
-	
+
 	public int getWidth()
 	{
 		return this.width;
