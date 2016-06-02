@@ -1,8 +1,8 @@
 package mjkuan.pathfinding.grid;
 
 public abstract class Tile {
-	public static final int TILE_WIDTH = 32;
-	public static final int TILE_HEIGHT = 32;
+	public static final int TILE_WIDTH = 64;
+	public static final int TILE_HEIGHT = 64;
 
 	private GridPosition position;
 	private int tileID;
