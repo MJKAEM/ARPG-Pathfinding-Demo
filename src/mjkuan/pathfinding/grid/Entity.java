@@ -1,6 +1,6 @@
 package mjkuan.pathfinding.grid;
 
-public abstract class Entity {
+public abstract class Entity implements Comparable<Entity> {	
 	private GridPosition position;
 
 	protected Entity(GridPosition position)
@@ -17,5 +17,12 @@ public abstract class Entity {
 	public GridPosition getPosition()
 	{
 		return this.position;
+	}
+
+	public int compareTo(Entity o)
+	{
+		return this.getPosition().getY() - o.getPosition().getY() != 0
+				? this.getPosition().getY() - o.getPosition().getY()
+				: this.getPosition().getX() - o.getPosition().getX();
 	}
 }
