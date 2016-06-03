@@ -17,13 +17,13 @@ public class Grid {
 
 		this.entities = new TreeSet<>();
 		this.tiles = new Tile[this.size];
-		
+
 		this.mouseOverEffect = new MouseOverEffect();
 	}
 
-	public void add(Entity entity)
+	public boolean add(Entity entity)
 	{
-		entities.add(entity);
+		return isValid(entity.getPosition()) && !isOccupied(entity.getPosition()) ? entities.add(entity) : false;
 	}
 
 	public void show()
@@ -37,7 +37,7 @@ public class Grid {
 		for (Entity entity : entities) {
 			entity.show();
 		}
-		
+
 		mouseOverEffect.show();
 	}
 
@@ -46,8 +46,26 @@ public class Grid {
 		for (Entity entity : entities) {
 			entity.update();
 		}
-		
+
 		mouseOverEffect.update();
+	}
+
+	public boolean isOccupied(GridPosition position)
+	{
+		return false;
+	}
+
+	public boolean isValid(GridPosition position)
+	{
+		if (position.getX() < 0 || position.getX() >= width) {
+			return false;
+		}
+
+		if (position.getY() < 0 || position.getY() >= height) {
+			return false;
+		}
+
+		return true;
 	}
 
 	public int getHeight()
