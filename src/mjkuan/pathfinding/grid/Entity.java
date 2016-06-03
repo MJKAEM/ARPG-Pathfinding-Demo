@@ -1,6 +1,6 @@
 package mjkuan.pathfinding.grid;
 
-public abstract class Entity implements Comparable<Entity> {	
+public abstract class Entity implements Comparable<Entity> {
 	private GridPosition position;
 
 	protected Entity(GridPosition position)
