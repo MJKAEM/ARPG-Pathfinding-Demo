@@ -31,17 +31,17 @@ public class MouseOverEffect {
 	public void update()
 	{
 		if (Global.callP5().mouseX < position.getX() * Tile.TILE_WIDTH) {
-			position.move(GridDirections.Left);
+			position.move(GridDirections.WEST);
 		}
 		else if (Global.callP5().mouseX > (position.getX() + 1) * Tile.TILE_WIDTH) {
-			position.move(GridDirections.Right);
+			position.move(GridDirections.EAST);
 		}
 		
 		if (Global.callP5().mouseY < position.getY() * Tile.TILE_HEIGHT) {
-			position.move(GridDirections.Up);
+			position.move(GridDirections.NORTH);
 		}
 		else if (Global.callP5().mouseY > (position.getY() + 1) * Tile.TILE_HEIGHT) {
-			position.move(GridDirections.Down);
+			position.move(GridDirections.SOUTH);
 		}
 	}
 	
