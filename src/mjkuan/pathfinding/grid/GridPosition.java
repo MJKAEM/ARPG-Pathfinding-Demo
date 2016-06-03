@@ -16,42 +16,94 @@ public class GridPosition {
 		this.positionY = positionY;
 	}
 
+	/**
+	 * Gets the position adjacent to the current position in the specified
+	 * direction.
+	 * 
+	 * @param direction
+	 *            The direction to look for the adjacent position
+	 * @return
+	 */
+	public GridPosition getAdjacentPosition(GridDirections direction)
+	{
+		GridPosition tempPosition = new GridPosition(positionX, positionY);
+		tempPosition.move(direction);
+		return tempPosition;
+	}
+
+	public GridDirections getDirectionFrom(GridPosition targetPosition)
+	{
+		if (this == targetPosition) {
+			return null;
+		}
+
+		GridDirections directionX = null;
+		GridDirections directionY = null;
+
+		if (positionX < targetPosition.positionX) {
+			directionX = GridDirections.EAST;
+		}
+		else if (positionX > targetPosition.positionX) {
+			directionX = GridDirections.WEST;
+		}
+
+		assert directionX == null || directionX == GridDirections.EAST || directionX == GridDirections.WEST;
+
+		if (positionY < targetPosition.positionY) {
+			directionY = GridDirections.SOUTH;
+		}
+		else if (positionY > targetPosition.positionY) {
+			directionY = GridDirections.NORTH;
+		}
+
+		assert directionY == null || directionY == GridDirections.NORTH || directionY == GridDirections.SOUTH;
+
+		return GridDirections.combineDirections(directionX, directionY);
+	}
+
+	/**
+	 * Moves the position to an adjacent position in the specified direction.
+	 * 
+	 * @param direction
+	 *            The direction to move the current position
+	 * @return
+	 */
 	public GridPosition move(GridDirections direction)
 	{
 		switch (direction) {
-			case Down:
+			case SOUTH:
 				positionY++;
 				break;
 
-			case Left:
+			case WEST:
 				positionX--;
 				break;
 
-			case LeftDown:
+			case SOUTHWEST:
 				positionX--;
 				positionY++;
 				break;
 
-			case LeftUp:
+			case NORTHWEST:
 				positionX--;
 				positionY--;
 				break;
 
-			case Right:
+			case EAST:
 				positionX++;
 				break;
 
-			case RightDown:
+			case SOUTHEAST:
 				positionX++;
 				positionY++;
 				break;
 
-			case RightUp:
+			case NORTHEAST:
 				positionX++;
 				positionY--;
 				break;
-				
-			case Up:
+
+			case NORTH:
 				positionY--;
 				break;
 
@@ -60,6 +112,17 @@ public class GridPosition {
 		}
 
 		return this;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof GridPosition) {
+			GridPosition tempPosition = (GridPosition) obj;
+			return positionX == tempPosition.positionX && positionY == tempPosition.positionY;
+		}
+
+		return false;
 	}
 
 	public int getX()
