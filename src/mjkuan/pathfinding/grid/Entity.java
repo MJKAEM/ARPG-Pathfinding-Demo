@@ -13,16 +13,16 @@ public abstract class Entity implements Comparable<Entity> {
 	public abstract void update();
 
 	public abstract boolean isPassable();
-
-	public GridPosition getPosition()
-	{
-		return this.position;
-	}
-
+	
 	public int compareTo(Entity o)
 	{
 		return this.getPosition().getY() - o.getPosition().getY() != 0
 				? this.getPosition().getY() - o.getPosition().getY()
 				: this.getPosition().getX() - o.getPosition().getX();
+	}
+
+	public GridPosition getPosition()
+	{
+		return this.position;
 	}
 }
