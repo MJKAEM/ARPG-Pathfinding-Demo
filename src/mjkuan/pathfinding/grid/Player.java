@@ -7,7 +7,7 @@ public class Player extends ImpassableEntity implements Movable {
 	private PathfindingMethod pathfindingMethod;
 	private GridPosition nextPosition;
 
-	protected Player(GridPosition position)
+	public Player(GridPosition position)
 	{
 		super(position);
 		this.pathfindingMethod = new StraightPathfindingMethod(position);

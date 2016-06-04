@@ -5,7 +5,7 @@ import mjkuan.pathfinding.Global;
 
 public class Water extends PassableEntity {
 
-	protected Water(GridPosition position)
+	public Water(GridPosition position)
 	{
 		super(position);
 	}
