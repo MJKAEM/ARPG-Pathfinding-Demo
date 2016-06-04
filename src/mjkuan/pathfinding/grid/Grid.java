@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 public class Grid {
 	private MouseOverEffect mouseOverEffect;
+	private Player player;
 	private Set<Entity> entities;
 	private Tile[] tiles;
 	private int width, height, size;
@@ -23,7 +24,13 @@ public class Grid {
 
 	public boolean add(Entity entity)
 	{
-		return isValid(entity.getPosition()) && !isOccupied(entity.getPosition()) ? entities.add(entity) : false;
+		boolean added = isValid(entity.getPosition()) && !isOccupied(entity.getPosition()) ? entities.add(entity)
+				: false;
+		
+		if (added && entity instanceof Player) {
+			player = (Player) entity;
+		}
+		return added;
 	}
 
 	public void show()
@@ -49,6 +56,11 @@ public class Grid {
 
 		mouseOverEffect.update();
 	}
+	
+	public void mouseReleased()
+	{
+		player.selectTargetOnMouse();
+	}
 
 	public boolean isOccupied(GridPosition position)
 	{
@@ -66,6 +78,11 @@ public class Grid {
 		}
 
 		return true;
+	}
+
+	public GridPosition getMouseClickPosition()
+	{
+		return this.mouseOverEffect.getPosition();
 	}
 
 	public int getHeight()

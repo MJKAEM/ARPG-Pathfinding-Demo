@@ -40,6 +40,12 @@ public class Main extends PApplet {
 	}
 	
 	@Override
+	public void mouseReleased()
+	{
+		testGrid.mouseReleased();
+	}
+	
+	@Override
 	public void keyReleased()
 	{
 		framesCounter.toggle();

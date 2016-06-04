@@ -13,9 +13,19 @@ public abstract class PathfindingMethod {
 		this.currentPosition = currentPosition;
 	}
 	
+	public boolean isPathComplete()
+	{
+		return pathList == null || pathList.isEmpty();
+	}
+	
 	public GridPosition peekNextPathPosition()
 	{
 		return pathList.isEmpty() ? null : pathList.get(0);
+	}
+	
+	public GridPosition popNextPathPosition()
+	{
+		return pathList.isEmpty() ? null : pathList.remove(0);
 	}
 
 	public void setNewTargetEntity(Entity targetEntity)
