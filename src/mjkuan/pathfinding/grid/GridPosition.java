@@ -1,5 +1,7 @@
 package mjkuan.pathfinding.grid;
 
+import java.util.Objects;
+
 public class GridPosition {
 	private int positionX;
 	private int positionY;
@@ -26,13 +28,24 @@ public class GridPosition {
 	 */
 	public GridPosition getAdjacentPosition(GridDirections direction)
 	{
+		Objects.requireNonNull(direction);
+
 		GridPosition tempPosition = new GridPosition(positionX, positionY);
 		tempPosition.move(direction);
 		return tempPosition;
 	}
 
-	public GridDirections getDirectionFrom(GridPosition targetPosition)
+	/**
+	 * Gets the direction from this position to another specified position.
+	 * 
+	 * @param targetPosition
+	 *            The position to find the direction to.
+	 * @return
+	 */
+	public GridDirections getDirectionTo(GridPosition targetPosition)
 	{
+		Objects.requireNonNull(targetPosition);
+
 		if (this == targetPosition) {
 			return null;
 		}
@@ -70,6 +83,8 @@ public class GridPosition {
 	 */
 	public GridPosition move(GridDirections direction)
 	{
+		Objects.requireNonNull(direction);
+
 		switch (direction) {
 			case SOUTH:
 				positionY++;
@@ -117,12 +132,20 @@ public class GridPosition {
 	@Override
 	public boolean equals(Object obj)
 	{
+		Objects.requireNonNull(obj);
+
 		if (obj instanceof GridPosition) {
 			GridPosition tempPosition = (GridPosition) obj;
 			return positionX == tempPosition.positionX && positionY == tempPosition.positionY;
 		}
 
 		return false;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "(" + positionX + ", " + positionY + ')';
 	}
 
 	public int getX()
