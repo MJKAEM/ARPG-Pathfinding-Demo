@@ -6,7 +6,7 @@ public abstract class PathfindingMethod {
 	private GridPosition currentPosition;
 	private List<GridPosition> pathList;
 	private GridPosition targetPosition;
-	private Entity targetEntity;
+	private Actor targetEntity;
 
 	public PathfindingMethod(GridPosition currentPosition)
 	{
@@ -28,7 +28,7 @@ public abstract class PathfindingMethod {
 		return pathList.isEmpty() ? null : pathList.remove(0);
 	}
 
-	public void setNewTargetEntity(Entity targetEntity)
+	public void setNewTargetEntity(Actor targetEntity)
 	{
 		this.targetEntity = targetEntity;
 		this.targetPosition = null;

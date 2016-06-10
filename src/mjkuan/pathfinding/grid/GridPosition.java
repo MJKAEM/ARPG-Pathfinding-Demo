@@ -145,7 +145,7 @@ public class GridPosition {
 	@Override
 	public String toString()
 	{
-		return "(" + positionX + ", " + positionY + ')';
+		return "(" + positionX + ", " + positionY + ")";
 	}
 
 	public int getX()

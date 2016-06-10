@@ -8,7 +8,7 @@ public class TestGrid extends Grid {
 		add(new Player(playerPosition));
 
 		GridPosition rockPosition001 = new GridPosition(1, 1);
-		add(new Rock(rockPosition001));
+		add(new Prop(rockPosition001, PropNames.Rock));
 
 		GridPosition waterPosition001 = new GridPosition(9, 6);
 		add(new Water(waterPosition001));
