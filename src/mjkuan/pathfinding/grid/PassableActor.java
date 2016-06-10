@@ -7,14 +7,14 @@ package mjkuan.pathfinding.grid;
  * @author Martino Kuan
  *
  */
-public abstract class PassableEntity extends Actor {
+public abstract class PassableActor extends Actor {
 	/**
-	 * Initializes a new instance of the {@link PassableEntity} class.
+	 * Initializes a new instance of the {@link PassableActor} class.
 	 * 
 	 * @param position
 	 *            the starting position of this entity
 	 */
-	protected PassableEntity(GridPosition position)
+	protected PassableActor(GridPosition position)
 	{
 		super(position);
 	}

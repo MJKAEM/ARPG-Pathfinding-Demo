@@ -3,7 +3,7 @@ package mjkuan.pathfinding.grid;
 import mjkuan.pathfinding.ContentLoader;
 import mjkuan.pathfinding.Global;
 
-public class Player extends ImpassableEntity implements Movable {
+public class Player extends ImpassableActor implements Movable {
 	private int FRAMES_BEFORE_MOVEMENT = (int) Global.scaleSecondsToStandard(0.5);
 
 	private PathfindingMethod pathfindingMethod;

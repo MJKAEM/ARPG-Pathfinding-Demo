@@ -1,7 +1,7 @@
 package mjkuan.pathfinding.grid;
 
-public abstract class ImpassableEntity extends Actor {
-	protected ImpassableEntity(GridPosition position)
+public abstract class ImpassableActor extends Actor {
+	protected ImpassableActor(GridPosition position)
 	{
 		super(position);
 	}

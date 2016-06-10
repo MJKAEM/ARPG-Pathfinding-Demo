@@ -3,7 +3,7 @@ package mjkuan.pathfinding.grid;
 import mjkuan.pathfinding.ContentLoader;
 import mjkuan.pathfinding.Global;
 
-public class Water extends PassableEntity {
+public class Water extends PassableActor {
 
 	public Water(GridPosition position)
 	{
