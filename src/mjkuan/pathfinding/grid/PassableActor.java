@@ -2,7 +2,7 @@ package mjkuan.pathfinding.grid;
 
 /**
  * The base class for all actors that can interact with other entities on the
- * grid, including blocking other actors from moving into the same spot as them.
+ * grid, but cannot block other actors from moving into the same spot as them.
  * 
  * @author Martino Kuan
  *

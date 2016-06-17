@@ -56,7 +56,7 @@ public class Player extends ImpassableActor implements Movable {
 					translateX -= Tile.TILE_WIDTH * translateValue;
 					translateY += Tile.TILE_HEIGHT * translateValue;
 					break;
-					
+
 				case WEST:
 					translateX -= Tile.TILE_WIDTH * translateValue;
 					break;
@@ -83,20 +83,22 @@ public class Player extends ImpassableActor implements Movable {
 				nextPosition = pathfindingMethod.peekNextPathPosition();
 			}
 			else {
-				if (currentMoveFrames < FRAMES_BEFORE_MOVEMENT) {
-					currentMoveFrames += Global.scaleValueToFrames(1);
-				}
-				else {
+				if (currentMoveFrames >= FRAMES_BEFORE_MOVEMENT) {
 					GridDirections directionToGo = getPosition().getDirectionTo(nextPosition);
 					getPosition().move(directionToGo);
 					nextPosition = null;
 					currentMoveFrames = 0;
-					
-					if (pathfindingMethod.peekNextPathPosition() != null && getPosition().equals(pathfindingMethod.peekNextPathPosition())) {
+
+					if (pathfindingMethod.peekNextPathPosition() != null
+							&& getPosition().equals(pathfindingMethod.peekNextPathPosition())) {
 						pathfindingMethod.popNextPathPosition();
 					}
 				}
+				currentMoveFrames += Global.scaleValueToFrames(1);
 			}
+		}
+		else {
+			currentMoveFrames = 0;
 		}
 	}
 
@@ -125,7 +127,7 @@ public class Player extends ImpassableActor implements Movable {
 				getPosition().move(meToOldNextDirection);
 				currentMoveFrames = FRAMES_BEFORE_MOVEMENT - currentMoveFrames;
 			}
-			else /*if (meToOldNextDirection == meToNewNextDirection)*/ {
+			else /* if (meToOldNextDirection == meToNewNextDirection) */ {
 				pathfindingMethod.popNextPathPosition();
 			}
 		}
