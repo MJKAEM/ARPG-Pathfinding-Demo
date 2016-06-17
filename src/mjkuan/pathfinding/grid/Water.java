@@ -2,6 +2,7 @@ package mjkuan.pathfinding.grid;
 
 import mjkuan.pathfinding.ContentLoader;
 import mjkuan.pathfinding.Global;
+import mjkuan.pathfinding.entity.PassableActor;
 
 public class Water extends PassableActor {
 

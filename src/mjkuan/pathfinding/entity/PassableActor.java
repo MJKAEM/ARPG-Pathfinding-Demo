@@ -1,4 +1,6 @@
-package mjkuan.pathfinding.grid;
+package mjkuan.pathfinding.entity;
+
+import mjkuan.pathfinding.grid.GridPosition;
 
 /**
  * The base class for all actors that can interact with other entities on the

@@ -3,6 +3,10 @@ package mjkuan.pathfinding.grid;
 import java.util.Set;
 import java.util.TreeSet;
 
+import mjkuan.pathfinding.entity.Actor;
+import mjkuan.pathfinding.entity.Entity;
+import mjkuan.pathfinding.entity.Player;
+
 //TODO: Make Grid the data structure and rename this to Level or Map
 /**
  * A structure to update and render actions, tiles, and entities to the screen.

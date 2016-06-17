@@ -1,5 +1,7 @@
 package mjkuan.pathfinding.grid;
 
+import mjkuan.pathfinding.entity.Player;
+
 public class TestGrid extends Grid {
 	public TestGrid()
 	{

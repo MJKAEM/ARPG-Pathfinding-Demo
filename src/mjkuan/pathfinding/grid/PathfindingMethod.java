@@ -2,6 +2,8 @@ package mjkuan.pathfinding.grid;
 
 import java.util.List;
 
+import mjkuan.pathfinding.entity.Actor;
+
 public abstract class PathfindingMethod {
 	private GridPosition currentPosition;
 	private List<GridPosition> pathList;

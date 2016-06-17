@@ -2,6 +2,8 @@ package mjkuan.pathfinding.grid;
 
 import mjkuan.pathfinding.ContentLoader;
 import mjkuan.pathfinding.Global;
+import mjkuan.pathfinding.entity.Actor;
+import mjkuan.pathfinding.entity.Entity;
 
 /**
  * An {@link Entity} that is capable of blocking other entities and is displayed

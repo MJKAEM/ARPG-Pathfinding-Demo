@@ -1,7 +1,13 @@
-package mjkuan.pathfinding.grid;
+package mjkuan.pathfinding.entity;
 
 import mjkuan.pathfinding.ContentLoader;
 import mjkuan.pathfinding.Global;
+import mjkuan.pathfinding.grid.GridDirections;
+import mjkuan.pathfinding.grid.GridPosition;
+import mjkuan.pathfinding.grid.Movable;
+import mjkuan.pathfinding.grid.PathfindingMethod;
+import mjkuan.pathfinding.grid.StraightPathfindingMethod;
+import mjkuan.pathfinding.grid.Tile;
 
 public class Player extends ImpassableActor implements Movable {
 	private int FRAMES_BEFORE_MOVEMENT = (int) Global.scaleSecondsToStandard(0.5);
